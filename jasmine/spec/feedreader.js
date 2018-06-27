@@ -62,7 +62,7 @@ $(function() {
 
             // click twice to hide again
             menuIcon.trigger( "click" );
-            expect(body.attr('class')).toContain('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
 
@@ -77,7 +77,7 @@ $(function() {
         });
 
         it('contains at least 1 entry element on load', function(done) {
-            var entryList = $('.entry-link');
+            var entryList = $('.feed .entry-link');
             expect(entryList.length).not.toBe(0);
             done();
         });
@@ -91,11 +91,10 @@ $(function() {
         beforeEach(function(done) {
             loadFeed(0, function() {
                 feedOne = $('.feed').html();
-            });
-
-            loadFeed(1, function(){
-                feedTwo = $('.feed').html();
-                done();
+                loadFeed(1, function(){
+                    feedTwo = $('.feed').html();
+                    done();
+                });
             });
         });
 

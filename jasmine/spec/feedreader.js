@@ -49,7 +49,7 @@ $(function() {
         var menuIcon = $('.menu-icon-link');
 
         it('is hidden by default', function() {
-            expect(body.attr('class')).toContain('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
 
         /* tests to make sure visibility of the menu element toggles
@@ -58,7 +58,7 @@ $(function() {
         it('is visible when clicked', function() {
             // click once to make visible
             menuIcon.trigger( "click" );
-            expect(body.attr('class')).not.toContain('menu-hidden');
+            expect($('body').hasClass('menu-hidden')).toBe(false);
 
             // click twice to hide again
             menuIcon.trigger( "click" );

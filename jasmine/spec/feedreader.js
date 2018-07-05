@@ -71,15 +71,12 @@ $(function() {
          * .entry element after the loadFeed function is called and completes
          */
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
-        it('contains at least 1 entry element on load', function(done) {
-            var entryList = $('.feed .entry-link');
+        it('contains at least 1 entry element on load', function() {
+            var entryList = $('.feed .entry');
             expect(entryList.length).not.toBe(0);
-            done();
         });
     });
 
